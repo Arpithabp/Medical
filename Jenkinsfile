@@ -42,11 +42,13 @@ pipeline{
 		}
 		
 		stage('Terraform-stage'){
-		   	dir('Terraform-Files')steps{
-				sh 'sudo chmod 600 AssignmentKey.pem'
-				sh 'terraform init'
-				sh 'terraform validate'
-				sh 'terraform apply -auto-approve'
+			steps{
+		   		dir('Terraform-Files'){
+					sh 'sudo chmod 600 AssignmentKey.pem'
+					sh 'terraform init'
+					sh 'terraform validate'
+					sh 'terraform apply -auto-approve'
+				}
 			}
 		}
 		stage('Deploy app using ansible'){
