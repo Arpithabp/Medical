@@ -42,7 +42,7 @@ pipeline{
 		}
 		
 		stage('create infra'){
-		   steps{
+		   	dir('Terraform-Files')steps{
 				sh 'sudo chmod 600 AssignmentKey.pem'
 				sh 'terraform init'
 				sh 'terraform validate'
