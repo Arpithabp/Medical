@@ -11,8 +11,6 @@
    - name: start docker service using systemctl
      command: sudo systemctl start docker
      become: yes
-   - name: Adding group
-     command: sudo groupadd docker
    - name: usermodGroup
      command: sudo usermod -aG docker ubuntu
    - name: downloading minikube
