@@ -1,5 +1,5 @@
   - name: 1
-	command: curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.24.9/2023-01-11/bin/linux/amd64/kubectl
+    command: curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.24.9/2023-01-11/bin/linux/amd64/kubectl
   - name: 2 
     command: chmod +x ./kubectl
   - name: 3 
@@ -59,9 +59,10 @@
   - name: 30
     command: minikube start --vm-driver=none
   - name: sleeping
-     command: sleep 20
+    command: sleep 20
   - name: 31
     command: curl https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/canal.yaml -O
+  - name: 32
     command: kubectl apply -f canal.yaml
   - name: sleeping
-     command: sleep 20
+    command: sleep 20
