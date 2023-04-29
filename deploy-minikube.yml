@@ -1,8 +1,8 @@
-  - name: 1
+  - name: 1a
     command: curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.24.9/2023-01-11/bin/linux/amd64/kubectl
-  - name: 2 
+  - name: 2a 
     command: chmod +x ./kubectl
-  - name: 3 
+  - name: 3a 
     command: sudo mv ./kubectl /usr/local/bin/kubectl
   - name: 4
     command: sudo apt update && sudo apt install docker.io -y
