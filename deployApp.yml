@@ -4,6 +4,6 @@
    become: true
    tasks:
  - name: applying deploymentFile
-	 command: kubectl apply -f medicure-deployment.yml
+   command: kubectl apply -f medicure-deployment.yml
  - name: applying ServiceFile
    command: kubectl apply -f medicure-service.yml
