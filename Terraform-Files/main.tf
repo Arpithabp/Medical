@@ -15,13 +15,13 @@ resource "aws_instance" "example" {
 	}
 	
 	root_block_device {
-      volume_size = 20
-      volume_type = "gp2"
-    }
+      		volume_size = 20
+      		volume_type = "gp2"
+   	}
 	
-	tags = {
-        name = "Test-server"
-    }
+     	tags = {
+        	Name = "Test-server"
+  	}
 	provisioner "remote-exec" {
 		inline = [
 			"sudo apt-get update -y",
