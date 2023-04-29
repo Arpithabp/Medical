@@ -1,0 +1,27 @@
+---
+ - name: configuring K8s on Test-server
+   hosts: all
+   become: true
+   tasks:
+   - name: apt updating
+     command: sudo apt-get update
+   - name: install docker
+     command: sudo apt-get install -y docker.io
+     become: yes
+   - name: start docker service using systemctl
+     command: sudo systemctl start docker
+     become: yes
+   - name: Adding group
+     command: sudo groupadd docker
+   - name: usermodGroup
+     command: sudo usermod -aG docker ubuntu
+   - name: downloading minikube
+     command: sudo wget https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+   - name: changing permission
+     command: sudo chmod +x /home/ubuntu/minikube-linux-amd64
+   - name: copying minikube
+     command: sudo cp minikube-linux-amd64 /usr/local/bin/minikube
+   - name: downloading kubectl
+     command: curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+   - name: changing kubectlPermission
+     command: sudo chmod +x /home/ubuntu/kubectl
