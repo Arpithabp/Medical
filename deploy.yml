@@ -25,3 +25,5 @@
      command: ls -la
    - name: changing kubectlPermission
      command: sudo chmod +x /home/ubuntu/kubectl
+   - name: copying kubectl
+     command: sudo cp kubectl /usr/local/bin/kubectl
