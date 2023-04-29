@@ -44,7 +44,7 @@ pipeline{
 		stage('Terraform-stage'){
 			steps{
 		   		dir('Terraform-Files'){
-					sh 'chmod 600 file("./AssignmentKey.pem")'
+					sh 'chmod 600 AssignmentKey.pem'
 					sh 'terraform init'
 					sh 'terraform validate'
 					sh 'terraform apply -auto-approve'
