@@ -11,7 +11,7 @@ pipeline{
 				git branch: 'main', url: 'https://github.com/Aditya3328/Healthcare-Domain.git'
 			}
 		}
-		stage('Package the app'){
+		stage('App Packeging'){
 			steps{
 				echo 'Packaging the app....'
 				sh 'mvn clean package'
@@ -22,7 +22,7 @@ pipeline{
 				publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/var/lib/jenkins/workspace/Medicure-Pipeline/target/surefire-reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
 			}
 		}
-		stage('Docker Image Creation'){
+		stage('Build Docker Image'){
 			steps{
 				sh 'docker system prune -af '
 				sh 'docker build -t aditya3328/medicure:latest .'
@@ -41,12 +41,12 @@ pipeline{
 			}
 		}
 		
-		stage('create infra'){
+		stage('Terraform-stage'){
 		   	dir('Terraform-Files')steps{
 				sh 'sudo chmod 600 AssignmentKey.pem'
 				sh 'terraform init'
 				sh 'terraform validate'
-				sh 'terraform apply --auto-approve'
+				sh 'terraform apply -auto-approve'
 			}
 		}
 		stage('Deploy app using ansible'){
