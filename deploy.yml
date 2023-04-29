@@ -23,6 +23,8 @@
      command: 'curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl'
    - name: show dir
      command: ls -la
+   - name: sleeping
+     command: sleep 10
    - name: changing kubectlPermission
      command: sudo chmod +x /home/ubuntu/kubectl
    - name: copying kubectl
