@@ -18,7 +18,11 @@
      command: sudo systemctl start docker
      become: yes
    - name: 5
-     command: curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && chmod +x minikube && sudo mv minikube /usr/local/bin
+     command: curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+   - name: changing minikubePermision
+     command: chmod +x minikube
+   - name : moving minikubeApp
+     command: sudo mv minikube /usr/local/bin
    - name: 6
      command: sudo apt-get install conntrack -y
    - name: 7
