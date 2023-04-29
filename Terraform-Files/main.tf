@@ -22,4 +22,7 @@ resource "aws_instance" "example" {
      	tags = {
         	Name = "Test-server"
   	}
+	provisioner "local-exec" {
+        	command = " echo ${aws_instance.example.public_ip} > inventory "
+  }
 }
