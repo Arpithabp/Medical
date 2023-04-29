@@ -20,7 +20,7 @@
    - name: 8
      command: wget https://storage.googleapis.com/golang/getgo/installer_linux
    - name: 9
-    command: chmod +x ./installer_linux
+     command: chmod +x ./installer_linux
    - name: 10
      command: ./installer_linux
    - name: 11
