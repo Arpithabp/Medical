@@ -59,7 +59,7 @@ pipeline{
 		}
 		stage('Run Application on kubernetes'){
 			steps{
-				sh 'sudo chmod 600 ./Terraform-Files/AssignmentKey.pem'    
+				sh 'chmod 600 ./Terraform-Files/AssignmentKey.pem'    
 				sh 'sudo scp -o StrictHostKeyChecking=no -i ./Terraform-Files/AssignmentKey.pem medicure-deployment.yml ubuntu@15.206.185.23:/home/ubuntu/'
 				sh 'sudo scp -o StrictHostKeyChecking=no -i ./Terraform-Files/AssignmentKey.pem medicure-service.yml ubuntu@15.206.185.23:/home/ubuntu/'
 				script{
