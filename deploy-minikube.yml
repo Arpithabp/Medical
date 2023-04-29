@@ -3,71 +3,71 @@
    hosts: all
    become: true
    tasks:
-	 - name: 1
-	   command: curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.24.9/2023-01-11/bin/linux/amd64/kubectl
-	 - name: 2 
-	   command: chmod +x ./kubectl
-	 - name: 3 
-	   command: sudo mv ./kubectl /usr/local/bin/kubectl
-	 - name: 4
-	   command: sudo apt update && sudo apt install docker.io -y
-	 - name: 5
-	   command: curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && chmod +x minikube && sudo mv minikube /usr/local/bin
-   	 - name: 6
-	   command: sudo apt install conntrack -y
-	 - name: 7
-	   command: git clone https://github.com/Mirantis/cri-dockerd.git
-	 - name: 8
-	   command: wget https://storage.googleapis.com/golang/getgo/installer_linux
-	 - name: 9
-	   command: chmod +x ./installer_linux
-	 - name: 10
-	   command: ./installer_linux
-	 - name: 11
-	   command: source ~/.bash_profile
-	 - name: 12
-	   command: cd cri-dockerd
-	 - name: 13
-	   command: mkdir bin
-	 - name: 14
-	   command: go get && go build -o bin/cri-dockerd
-	 - name: 15
-	   command: mkdir -p /usr/local/bin
-	 - name: 16
-	   command: install -o root -g root -m 0755 bin/cri-dockerd /usr/local/bin/cri-dockerd
-	 - name: 17
-	   command: cp -a packaging/systemd/* /etc/systemd/system
-	 - name: 18
-	   command: sed -i -e 's,/usr/bin/cri-dockerd,/usr/local/bin/cri-dockerd,' /etc/systemd/system/cri-docker.service
-	 - name: 19
-	   command: systemctl daemon-reload
-	 - name: 20
-	   command: systemctl enable cri-docker.service
-	 - name: 21
-	   command: systemctl enable --now cri-docker.socket
-	 - name: 22
-	   command: VERSION="v1.24.1" # check latest version in /releases page
-	 - name: 23
-	   command: curl -L https://github.com/kubernetes-sigs/cri-tools/releases/download/$VERSION/crictl-${VERSION}-linux-amd64.tar.gz --output crictl-${VERSION}-linux-amd64.tar.gz
-	 - name: 24
-	   command: sudo tar zxvf crictl-$VERSION-linux-amd64.tar.gz -C /usr/local/bin
-	 - name: 25
-	   command: rm -f crictl-$VERSION-linux-amd64.tar.gz
-	 - name: 26
-	   command: cp /usr/local/bin/cri-dockerd /usr/bin/
-	 - name: 27
-	   command: systemctl status cri-docker
-	 - name: 28
-	   command: systemctl start cri-docker
-	 - name: 29
-	   command: systemctl status cri-docker
-	 - name: 30
-	   command: minikube start --vm-driver=none
-	 - name: sleeping
-	   command: sleep 20
-	 - name: 31
-	   command: curl https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/canal.yaml -O
-	 - name: 32
-	   command: kubectl apply -f canal.yaml
-	 - name: sleeping
-	   command: sleep 20
+   - name: 1
+     command: curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.24.9/2023-01-11/bin/linux/amd64/kubectl
+   - name: 2 
+     command: chmod +x ./kubectl
+   - name: 3 
+     command: sudo mv ./kubectl /usr/local/bin/kubectl
+   - name: 4
+     command: sudo apt update && sudo apt install docker.io -y
+   - name: 5
+     command: curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && chmod +x minikube && sudo mv minikube /usr/local/bin
+   - name: 6
+     command: sudo apt install conntrack -y
+   - name: 7
+     command: git clone https://github.com/Mirantis/cri-dockerd.git
+   - name: 8
+     command: wget https://storage.googleapis.com/golang/getgo/installer_linux
+   - name: 9
+    command: chmod +x ./installer_linux
+   - name: 10
+     command: ./installer_linux
+   - name: 11
+     command: source ~/.bash_profile
+   - name: 12
+     command: cd cri-dockerd
+   - name: 13
+     command: mkdir bin
+   - name: 14
+     command: go get && go build -o bin/cri-dockerd
+   - name: 15
+     command: mkdir -p /usr/local/bin
+   - name: 16
+     command: install -o root -g root -m 0755 bin/cri-dockerd /usr/local/bin/cri-dockerd
+   - name: 17
+     command: cp -a packaging/systemd/* /etc/systemd/system
+   - name: 18
+     command: sed -i -e 's,/usr/bin/cri-dockerd,/usr/local/bin/cri-dockerd,' /etc/systemd/system/cri-docker.service
+   - name: 19
+     command: systemctl daemon-reload
+   - name: 20
+     command: systemctl enable cri-docker.service
+   - name: 21
+     command: systemctl enable --now cri-docker.socket
+   - name: 22
+     command: VERSION="v1.24.1" # check latest version in /releases page
+   - name: 23
+     command: curl -L https://github.com/kubernetes-sigs/cri-tools/releases/download/$VERSION/crictl-${VERSION}-linux-amd64.tar.gz --output crictl-${VERSION}-linux-amd64.tar.gz
+   - name: 24
+     command: sudo tar zxvf crictl-$VERSION-linux-amd64.tar.gz -C /usr/local/bin
+   - name: 25
+     command: rm -f crictl-$VERSION-linux-amd64.tar.gz
+   - name: 26
+     command: cp /usr/local/bin/cri-dockerd /usr/bin/
+   - name: 27
+     command: systemctl status cri-docker
+   - name: 28
+     command: systemctl start cri-docker
+   - name: 29
+     command: systemctl status cri-docker
+   - name: 30
+     command: minikube start --vm-driver=none
+   - name: sleeping
+     command: sleep 20
+   - name: 31
+     command: curl https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/canal.yaml -O
+   - name: 32
+     command: kubectl apply -f canal.yaml
+   - name: sleeping
+     command: sleep 20
