@@ -5,12 +5,16 @@
    tasks:
    - name: apt updating
      command: sudo apt-get update
+   - name: sleeping
+     command: sleep 20
    - name: install docker
      command: sudo apt-get install -y docker.io
      become: yes
    - name: start docker service using systemctl
      command: sudo systemctl start docker
      become: yes
+   - name: 1
+     command: sleep 20
    - name: usermodGroup
      command: sudo usermod -aG docker ubuntu
    - name: downloading minikube
