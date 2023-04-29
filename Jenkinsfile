@@ -19,7 +19,7 @@ pipeline{
 		}
 		stage('publish reports using html'){
 			steps{
-				publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/var/lib/jenkins/workspace/Healthcare-Domain/target/surefire-reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+				publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/var/lib/jenkins/workspace/Medicure-Pipeline/target/surefire-reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
 			}
 		}
 		stage('Docker Image Creation'){
@@ -51,7 +51,7 @@ pipeline{
 		}
 		stage('Deploy app using ansible'){
 			steps{
-			ansiblePlaybook credentialsId: 'ssh-key', disableHostKeyChecking: true, installation: 'Ansible_home', inventory: '/var/lib/jenkins/workspace/Finance-pipeline/inventory', playbook: 'deploy.yml'
+			ansiblePlaybook credentialsId: 'ssh-key', disableHostKeyChecking: true, installation: 'Ansible_home', inventory: '/var/lib/jenkins/workspace/Medicure-Pipeline/inventory', playbook: 'deploy.yml'
 			}
 		}
 	}
