@@ -52,5 +52,11 @@ pipeline{
 			}
 		}
 		
+		stage('Deploy app using ansible'){
+			steps{
+			ansiblePlaybook credentialsId: 'ssh-key', disableHostKeyChecking: true, installation: 'Ansible_home', inventory: '/var/lib/jenkins/workspace/Medicure-Pipeline/inventory', playbook: 'deploy.yml'
+			}
+		}
+		
 	}
 }
