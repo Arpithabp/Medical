@@ -3,7 +3,7 @@
    hosts: all
    become: true
    tasks:
- - name: deploymentFile
-   command: kubectl apply -f medicure-deployment.yml
- - name: ServiceFile
-   command: kubectl apply -f medicure-service.yml
+   - name: deploymentFile
+     command: kubectl apply -f medicure-deployment.yml
+   - name: ServiceFile
+     command: kubectl apply -f medicure-service.yml
