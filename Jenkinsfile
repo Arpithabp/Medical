@@ -54,7 +54,7 @@ pipeline{
 		
 		stage('Deploy app using ansible'){
 			steps{
-			ansiblePlaybook credentialsId: 'ssh-key', disableHostKeyChecking: true, installation: 'Ansible_home', inventory: '/var/lib/jenkins/workspace/Medicure-Pipeline/Terraform-Files/inventory', playbook: 'deploy.yml'
+			ansiblePlaybook credentialsId: 'ssh-key', disableHostKeyChecking: true, installation: 'Ansible_home', inventory: '/var/lib/jenkins/workspace/Medicure-Pipeline/Terraform-Files/inventory', playbook: 'deploy-minikube.yml'
 			}
 		}
 		stage('Run Application on kubernetes'){
@@ -62,7 +62,7 @@ pipeline{
 				sh 'chmod 600 ./Terraform-Files/AssignmentKey.pem'    
 				sh 'scp -o StrictHostKeyChecking=no -i ./Terraform-Files/AssignmentKey.pem medicure-deployment.yml ubuntu@15.206.185.23:/home/ubuntu/'
 				sh 'scp -o StrictHostKeyChecking=no -i ./Terraform-Files/AssignmentKey.pem medicure-service.yml ubuntu@15.206.185.23:/home/ubuntu/'
-				ansiblePlaybook credentialsId: 'ssh-key', disableHostKeyChecking: true, installation: 'Ansible_home', inventory: '/var/lib/jenkins/workspace/Medicure-Pipeline/Terraform-Files/inventory', playbook: 'deploy-minikube.yml'
+				ansiblePlaybook credentialsId: 'ssh-key', disableHostKeyChecking: true, installation: 'Ansible_home', inventory: '/var/lib/jenkins/workspace/Medicure-Pipeline/Terraform-Files/inventory', playbook: 'deployApp.yml'
 			}
 		}
 	}
