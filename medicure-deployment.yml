@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-    name: addressbook-deployment
-    labels:
-      app: addressbook
+  name: addressbook-deployment
+  labels:
+    app: addressbook
 spec:
   replicas: 1
   selector:
