@@ -3,7 +3,11 @@
    hosts: all
    become: true
    tasks:
+   - name: sleeping
+     command: sleep 10
    - name: deploymentFile
-     command: kubectl apply -f medicure-deployment.yml
+     command: kubectl create deployment web --image=gcr.io/google-samples/hello-app:1.0
+   - name: sleeping
+     command: sleep 20
    - name: ServiceFile
-     command: kubectl apply -f medicure-service.yml
+     command: kubectl expose deployment web --type=NodePort --port=8080
