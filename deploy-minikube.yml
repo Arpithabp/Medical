@@ -35,7 +35,7 @@
      command: ./installer_linux
    - name: 11
      become: true
-     raw: source ~/.bash_profile
+     script: bashProfile.sh
    - name: 12
      command: cd cri-dockerd
    - name: 13
