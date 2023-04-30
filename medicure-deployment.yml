@@ -1,22 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: medicure-deployment
-  labels:
-    app: front-end
+	name: addressbook-deployment
+	labels:
+		app: addressbook
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: front-end
-  template:
-    metadata:
-      labels:
-        app: front-end
-    spec:
-       containers:
-         - name: medicure
-           image: aditya3328/finance-me:latest
-           ports:
-             - containerPort: 8080
-               
+	selector:
+		matchLabels:
+			app: addressbook
+	replicas: 1
+	template:
+		metadata:
+			labels:
+				app: addressbook
+		spec:
+			containers:
+				- name: addressbook
+				  image: aditya3328/addressbook:latest
+				  ports:
+					- containerPort: 8080
