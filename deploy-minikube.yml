@@ -86,8 +86,6 @@
      unarchive:
        src: /home/ubuntu/crictl{{ VERSION }}-linux-amd64.tar.gz
        dest: /usr/local/bin
-       remote_src: yes
-       copy: no
        extra_opts: [--strip-components=1]
    - name: 25
      command: rm -f crictl-$VERSION-linux-amd64.tar.gz
