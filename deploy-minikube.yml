@@ -65,7 +65,7 @@
        dest: /etc/systemd/system/
        owner: root
        group: root
-       
+       remote_src: yes
    - name: 18
      command: sed -i -e 's,/usr/bin/cri-dockerd,/usr/local/bin/cri-dockerd,' /etc/systemd/system/cri-docker.service
    - name: 19
