@@ -44,10 +44,10 @@
      shell: go get
      args:
        chdir: /home/ubuntu/cri-dockerd/
-    - name: Build binary
-      shell: go build -o bin/cri-dockerd
-      args:
-        chdir: /home/ubuntu/cri-dockerd/
+   - name: Build binary
+     shell: go build -o bin/cri-dockerd
+     args:
+       chdir: /home/ubuntu/cri-dockerd/
    - name: 15
      command: mkdir -p /usr/local/bin
    - name: 16
