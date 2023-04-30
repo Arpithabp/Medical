@@ -37,7 +37,7 @@
      become: true
      script: bashProfile.sh
      args:
-       chdir: cd cri-dockerd
+       chdir: /home/ubuntu/cri-dockerd
    - name: 13
      command: mkdir bin
    - name: 14
