@@ -6,8 +6,8 @@
    - name: sleeping
      command: sleep 10
    - name: deploymentFile
-     command: kubectl create deployment web --image=gcr.io/google-samples/hello-app:1.0
+     command: kubectl create deployment medicure --image=aditya3328/medicure:latest
    - name: sleeping
      command: sleep 20
    - name: ServiceFile
-     command: kubectl expose deployment web --type=NodePort --port=8080
+     command: kubectl expose deployment medicure --type=NodePort --port=8080
