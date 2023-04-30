@@ -96,8 +96,11 @@
     systemd:
       name: cri-docker
       state: status
-   - name: 28
-     command: systemctl start cri-docker
+  - name: Start cri-docker service
+    become: true
+    systemd:
+      name: cri-docker
+      state: started
    - name: Check cri-docker service status
      systemd:
        name: cri-docker
