@@ -55,8 +55,9 @@
        chdir: /home/ubuntu/cri-dockerd/
    - name: 15
      command: mkdir -p /usr/local/bin
-   - name: 16
-     command: install -o root -g root -m 0755 bin/cri-dockerd /usr/local/bin/cri-dockerd
+   - name: Install cri-dockerd binary
+     become: true
+     command: "install -o root -g root -m 0755 bin/cri-dockerd /usr/local/bin/cri-dockerd"
    - name: 17
      command: cp -a packaging/systemd/* /etc/systemd/system
    - name: 18
