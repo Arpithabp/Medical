@@ -58,12 +58,14 @@
    - name: Install cri-dockerd binary
      become: true
      command: "install -o root -g root -m 0755 /home/ubuntu/cri-dockerd/bin/cri-dockerd /usr/local/bin/cri-dockerd"
-   - name: Copy systemd files
+   - name: Copying systemd files
      become: true
      copy:
-       src: home/ubuntu/cri-dockerd/packaging/systemd/*
+       src: /home/ubuntu/cri-dockerd/packaging/systemd/*
        dest: /etc/systemd/system/
-       mode: '0644'
+       owner: root
+       group: root
+       
    - name: 18
      command: sed -i -e 's,/usr/bin/cri-dockerd,/usr/local/bin/cri-dockerd,' /etc/systemd/system/cri-docker.service
    - name: 19
