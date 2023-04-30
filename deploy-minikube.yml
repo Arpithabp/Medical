@@ -61,7 +61,7 @@
    - name: Copying systemd files
      become: true
      copy:
-       src: /home/ubuntu/cri-dockerd/packaging/systemd/*
+       src: /home/ubuntu/cri-dockerd/packaging/systemd/
        dest: /etc/systemd/system/
        owner: root
        group: root
