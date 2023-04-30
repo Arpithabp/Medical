@@ -18,5 +18,5 @@ spec:
          - name: medicure
            image: aditya3328/medicure:latest
            ports:
-             - containerPort: 8081
+             - containerPort: 8080
                
