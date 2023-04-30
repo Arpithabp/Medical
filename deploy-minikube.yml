@@ -97,6 +97,8 @@
      systemd:
        name: cri-docker
        state: started
+   - name: 27
+     command: sudo sysctl fs.protected_regular=0
    - name: 30
      command: minikube start --vm-driver=none
    - name: sleeping
