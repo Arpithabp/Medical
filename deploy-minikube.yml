@@ -41,9 +41,9 @@
    - name: 13
      command: mkdir bin
    - name: Install dependencies
-      shell: go get
-      args:
-        chdir: /home/ubuntu/cri-dockerd/
+     shell: go get
+     args:
+       chdir: /home/ubuntu/cri-dockerd/
     - name: Build binary
       shell: go build -o bin/cri-dockerd
       args:
