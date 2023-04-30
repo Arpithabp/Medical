@@ -93,9 +93,15 @@
    - name: 26
      command: cp /usr/local/bin/cri-dockerd /usr/bin/
    - name: Check cri-docker service status
+     become: true
      systemd:
        name: cri-docker
        state: status
+       register: service_status
+
+   - name: Print service status
+     debug:
+       var: service_status
    - name: Start cri-docker service
      become: true
      systemd:
