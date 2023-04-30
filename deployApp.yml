@@ -6,7 +6,7 @@
    - name: sleeping
      command: sleep 10
    - name: deploymentFile
-     command: kubectl create deployment medicure --image=aditya3328/medicure:latest
+     command: kubectl create deployment medicure --image=aditya3328/finance-me:latest
    - name: sleeping
      command: sleep 20
    - name: ServiceFile
