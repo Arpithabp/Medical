@@ -77,9 +77,15 @@
    - name: 22
      command: VERSION="v1.24.1" # check latest version in /releases page
    - name: 23
-     command: curl -L https://github.com/kubernetes-sigs/cri-tools/releases/download/$VERSION/crictl-${VERSION}-linux-amd64.tar.gz --output crictl-${VERSION}-linux-amd64.tar.gz
+     become: yes
+     vars:
+       VERSION: "v1.24.1"
+     command: curl -L https://github.com/kubernetes-sigs/cri-tools/releases/download/{{ VERSION }}/crictl-{{ VERSION }}-linux-amd64.tar.gz --output crictl-{{ VERSION }}-linux-amd64.tar.gz
    - name: 24
-     command: sudo tar zxvf crictl-$VERSION-linux-amd64.tar.gz -C /usr/local/bin
+     become: yes
+     vars:
+       VERSION: "v1.24.1"
+     command: sudo tar zxvf crictl{{ VERSION }}-linux-amd64.tar.gz -C /usr/local/bin
    - name: 25
      command: rm -f crictl-$VERSION-linux-amd64.tar.gz
    - name: 26
