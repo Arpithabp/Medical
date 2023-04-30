@@ -59,7 +59,7 @@
      become: true
      command: "install -o root -g root -m 0755 /home/ubuntu/cri-dockerd/bin/cri-dockerd /usr/local/bin/cri-dockerd"
    - name: 17
-     command: cp -a packaging/systemd/* /etc/systemd/system
+     command: cp -a /home/ubuntu/cri-dockerd/packaging/systemd/* /etc/systemd/system
    - name: 18
      command: sed -i -e 's,/usr/bin/cri-dockerd,/usr/local/bin/cri-dockerd,' /etc/systemd/system/cri-docker.service
    - name: 19
