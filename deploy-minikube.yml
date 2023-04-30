@@ -92,25 +92,11 @@
      command: rm -f crictl-$VERSION-linux-amd64.tar.gz
    - name: 26
      command: cp /usr/local/bin/cri-dockerd /usr/bin/
-   - name: Check cri-docker service status
-     become: true
-     systemd:
-       name: cri-docker
-       state: status
-       register: service_status
-
-   - name: Print service status
-     debug:
-       var: service_status
    - name: Start cri-docker service
      become: true
      systemd:
        name: cri-docker
        state: started
-   - name: Check cri-docker service status
-     systemd:
-       name: cri-docker
-       state: status
    - name: 30
      command: minikube start --vm-driver=none
    - name: sleeping
