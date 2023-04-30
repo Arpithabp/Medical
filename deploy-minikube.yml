@@ -74,8 +74,6 @@
      command: systemctl enable cri-docker.service
    - name: 21
      command: systemctl enable --now cri-docker.socket
-   - name: 22
-     command: VERSION="v1.24.1" # check latest version in /releases page
    - name: 23
      become: yes
      vars:
