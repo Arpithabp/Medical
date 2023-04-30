@@ -25,8 +25,6 @@
      command: sudo mv minikube /usr/local/bin
    - name: 6
      command: sudo apt-get install conntrack -y
-   - name: removing existingDir
-     command: if [ -d cri-dockerd ]; then rm -r cri-dockerd; fi
    - name: 7
      command: git clone https://github.com/Mirantis/cri-dockerd.git
    - name: 8
