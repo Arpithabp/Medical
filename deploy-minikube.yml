@@ -38,8 +38,13 @@
      script: bashProfile.sh
      args:
        chdir: /home/ubuntu/cri-dockerd
-   - name: 13
-     command: mkdir bin
+   - name: Create directory
+     file:
+       path: /home/ubuntu/cri-dockerd/bin
+       state: directory
+       owner: root
+       group: root
+       mode: "0755"
    - name: Install dependencies
      shell: go get
      args:
