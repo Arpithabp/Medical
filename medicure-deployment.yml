@@ -5,17 +5,17 @@ metadata:
 	labels:
 		app: addressbook
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: addressbook
-  template:
-    metadata:
-      labels:
-	 app: addressbook
-    spec:
-       containers:
-	 - name: addressbook
-	   image: aditya3328/addressbook:latest
-	   ports:
-	     - containerPort: 8080
+	replicas: 1
+	selector:
+		matchLabels:
+			app: addressbook
+	template:
+		metadata:
+			labels:
+				app: addressbook
+		spec:
+			containers:
+				- name: addressbook
+				  image: aditya3328/addressbook:latest
+				  ports:
+				  	- containerPort: 8080
