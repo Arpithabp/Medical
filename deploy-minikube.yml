@@ -84,7 +84,7 @@
      vars:
        VERSION: "v1.24.1"
      unarchive:
-       src: /home/ubuntu/crictl{{ VERSION }}-linux-amd64.tar.gz
+       src: /home/ubuntu/crictl-v1.24.1-linux-amd64.tar.gz
        dest: /usr/local/bin
        remote_src: yes
        extra_opts: [--strip-components=1]
