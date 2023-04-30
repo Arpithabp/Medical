@@ -36,8 +36,8 @@
    - name: 11
      become: true
      script: bashProfile.sh
-   - name: 12
-     command: cd cri-dockerd
+     args:
+       chdir: cd cri-dockerd
    - name: 13
      command: mkdir bin
    - name: 14
