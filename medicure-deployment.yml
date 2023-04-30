@@ -3,19 +3,19 @@ kind: Deployment
 metadata:
     name: addressbook-deployment
     labels:
-	app: addressbook
+      app: addressbook
 spec:
-    selector:
-	matchLabels:
-             app: addressbook
-    replicas: 1
-    template:
-	metadata:
-            labels:
-		app: addressbook
-	spec:
-	    containers:
-		- name: addressbook
-		  image: aditya3328/addressbook:latest
-		  ports:
-		    - containerPort: 8080
+  selector:
+    matchLabels:
+      app: addressbook
+  replicas: 1
+  template:
+    metadata:
+      labels:
+	app: addressbook
+    spec:
+       containers:
+	 - name: addressbook
+	   image: aditya3328/addressbook:latest
+	   ports:
+	     - containerPort: 8080
