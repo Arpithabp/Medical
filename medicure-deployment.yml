@@ -16,7 +16,7 @@ spec:
     spec:
        containers:
          - name: medicure
-           image: aditya3328/medicure:latest
+           image: aditya3328/finance-me:latest
            ports:
              - containerPort: 8080
                
