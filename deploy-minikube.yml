@@ -41,9 +41,9 @@
    - name: 13
      command: mkdir bin
    - name: 14
-     command: go get
+     command: "go get && go build -o bin/cri-dockerd"
    - name: 14a
-     command: go build -o bin/cri-dockerd
+     command: sleep 10
    - name: 15
      command: mkdir -p /usr/local/bin
    - name: 16
