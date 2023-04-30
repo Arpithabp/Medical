@@ -80,7 +80,7 @@
        VERSION: "v1.24.1"
      command: curl -L https://github.com/kubernetes-sigs/cri-tools/releases/download/{{ VERSION }}/crictl-{{ VERSION }}-linux-amd64.tar.gz --output crictl-{{ VERSION }}-linux-amd64.tar.gz
    - name: Untar crictl file
-     become: yes
+     become: true
      vars:
        VERSION: "v1.24.1"
      unarchive:
