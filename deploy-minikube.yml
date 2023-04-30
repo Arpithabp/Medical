@@ -41,13 +41,8 @@
    - name: 13
      command: mkdir bin
    - name: 14
-     command: sudo apt-get update
-   - name: 14a
-     command: sudo apt-get install -y golang
-   - name: 14b
-     command: sleep 10
-   - name: 14b
-     command: go build -o bin/cri-dockerd
+     shell: |
+        go get && go build -o bin/cri-dockerd
    - name: 15
      command: mkdir -p /usr/local/bin
    - name: 16
