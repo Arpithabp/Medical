@@ -6,8 +6,8 @@
    - name: sleeping
      command: sleep 10
    - name: deploymentFile
-     command: kubectl create deployment medicure --image=aditya3328/finance-me:latest
+     command: kubectl create deployment insure --image=aditya3328/insure-me:latest
    - name: sleeping
      command: sleep 20
    - name: ServiceFile
-     command: kubectl expose deployment medicure --type=NodePort --port=8080
+     command: kubectl expose deployment insure --type=NodePort --port=8080
