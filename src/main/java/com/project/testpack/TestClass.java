@@ -16,10 +16,10 @@ public class TestClass {
 		//System.setProperty("webdriver.chrome.driver", "F://chromedriver_win32//chromedriver.exe");
 		System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
 		ChromeOptions chromeOptions = new ChromeOptions();
-		chromeOptions.addArguments("--remote-allow-origins=*", "ignore-certificate-errors");
 		chromeOptions.addArguments("--headless");
 		chromeOptions.addArguments("--no-sandbox");
 		chromeOptions.addArguments("--disable-dev-shm-usage");
+		chromeOptions.addArguments("--remote-allow-origins=*");
 		
 		WebDriver driver = new ChromeDriver(chromeOptions);
 		System.out.println("Welcome to selenium test script");
