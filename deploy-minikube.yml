@@ -1,5 +1,5 @@
 ---
- - name: Running app on Test-server
+ - name: Installing minikube-app on Test-server
    hosts: all
    become: true
    tasks:
