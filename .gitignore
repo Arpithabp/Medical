@@ -1,5 +1,5 @@
 HELP.md
-com/project/testpack/
+/src/main/java/com/project/testpack/TestClass.java
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
