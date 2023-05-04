@@ -16,6 +16,6 @@ spec:
 		spec:
 			containers:
 				- name: addressbook
-				  image: aditya3328/addressbook:latest
+				  image: arpithabp/medicalproject:latest
 				  ports:
 				  	- containerPort: 8080
